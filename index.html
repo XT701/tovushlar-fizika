@@ -149,7 +149,7 @@ canvas{
  width:100%;height:235px;border-radius:15px;border:1px solid #cde1ed;
  background:linear-gradient(180deg,#102e43,#0b2536);display:block
 }
-.smallcanvas{height:175px}.wave-svg svg{display:block;width:100%;height:100%}
+.smallcanvas{height:175px}
 label{display:block;font-weight:850;color:#365870;margin:7px 0 5px}
 input[type=range]{width:100%;accent-color:var(--blue)}
 input[type=number],select{
@@ -210,76 +210,7 @@ summary{cursor:pointer;font-weight:850;color:#27526b}
  body{background:#fff;color:#000}
  .deck{width:100%;margin:0}.page{min-height:0;margin:0 0 10mm;border:0;border-radius:0;box-shadow:none;page-break-after:always;background:#fff;color:#111;padding:12mm}
  .page:before,.page:after{display:none}.card,.quote,.callout{background:#fff;border-color:#aaa}.sub,.lead{color:#333}
- canvas{border-color:#777}.wave-svg{border-color:#777;background:#fff}.footer{color:#333}
-}
-
-/* ===== ULTIMATE VISUAL LAYER ===== */
-body:after{
- content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
- background:
-  radial-gradient(circle at 10% 20%,rgba(42,157,213,.06),transparent 22%),
-  radial-gradient(circle at 90% 70%,rgba(68,202,140,.06),transparent 25%);
-}
-.page{transition:transform .35s ease,box-shadow .35s ease}
-.page.entering{animation:pageIn .55s ease both}
-@keyframes pageIn{from{opacity:.2;transform:translateY(18px) scale(.99)}to{opacity:1;transform:none}}
-.visual-lab{
- margin:20px 0 2px;border:1px solid #cfe5ef;border-radius:20px;
- background:linear-gradient(135deg,#f8fdff,#f1faff);
- padding:16px;overflow:hidden;position:relative;box-shadow:0 10px 26px rgba(35,85,116,.08)
-}
-.visual-lab .vl-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.visual-lab .vl-title{font-size:18px;font-weight:950;color:#1c6f9b}
-.visual-lab .vl-caption{font-size:12px;color:#69879a}
-.visual-lab .vl-stage{position:relative;min-height:190px;border-radius:16px;overflow:hidden;background:#08263a}
-.vl-wave path{stroke:#65e7ff;stroke-width:4;fill:none;filter:drop-shadow(0 0 5px rgba(101,231,255,.35))}
-.vl-grid line{stroke:#d9f4ff;stroke-opacity:.11}
-.particle{position:absolute;width:10px;height:10px;border-radius:50%;background:#5ddfff;box-shadow:0 0 12px rgba(93,223,255,.55)}
-.particle.green{background:#57d99c;box-shadow:0 0 12px rgba(87,217,156,.5)}
-.particle.yellow{background:#ffd36e;box-shadow:0 0 12px rgba(255,211,110,.5)}
-.sound-source{position:absolute;left:25px;top:50%;transform:translateY(-50%);width:86px;height:86px;border-radius:22px;background:linear-gradient(145deg,#1c83bf,#37bfe1);box-shadow:0 12px 26px rgba(24,118,173,.22)}
-.sound-source:before,.sound-source:after{content:"";position:absolute;border:3px solid rgba(255,255,255,.78);border-left-color:transparent;border-top-color:transparent;border-bottom-color:transparent;border-radius:50%}
-.sound-source:before{inset:18px -10px 18px 58px}.sound-source:after{inset:11px -20px 11px 55px;opacity:.65}
-.membrane{position:absolute;left:50%;top:28px;transform:translateX(-50%);width:10px;height:130px;background:#d4f4ff;border-radius:9px;box-shadow:0 0 20px rgba(212,244,255,.28)}
-.particle-row{position:absolute;left:150px;right:18px;top:20px;bottom:20px}
-.pulse-ring{position:absolute;border:3px solid rgba(255,255,255,.7);border-radius:50%;animation:pulseRing 2.2s infinite}
-@keyframes pulseRing{0%{transform:scale(.25);opacity:.9}80%,100%{transform:scale(1.9);opacity:0}}
-.meter{height:12px;border-radius:999px;background:#dcecf3;overflow:hidden}
-.meter i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2f80ed,#35bd96,#f0b84d);transition:width .3s ease}
-.knob{width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid #2f80ed;box-shadow:0 4px 12px rgba(47,128,237,.18);position:absolute;top:50%;transform:translate(-50%,-50%)}
-.scan-line{position:absolute;top:5%;bottom:5%;width:3px;background:linear-gradient(180deg,transparent,#6ce9ff,#fff,#6ce9ff,transparent);box-shadow:0 0 14px rgba(108,233,255,.8);animation:scan 2.7s linear infinite}
-@keyframes scan{from{left:4%}to{left:96%}}
-.scan-body{position:absolute;inset:22px;border-radius:22px;background:linear-gradient(135deg,#15364b,#0e2940);overflow:hidden}
-.organ{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffd6d6,#e86f7c 45%,#7d3041);box-shadow:0 0 0 7px rgba(232,111,124,.10),0 0 35px rgba(232,111,124,.18)}
-.echo-wave{position:absolute;width:16px;height:16px;border:2px solid #56e7ff;border-radius:50%;animation:echo 2.2s infinite}
-@keyframes echo{0%{transform:scale(.3);opacity:.9}75%{opacity:.25}100%{transform:scale(8);opacity:0}}
-.res-curve{position:absolute;left:5%;right:5%;bottom:18px;height:125px}
-.res-peak{position:absolute;left:50%;bottom:10px;width:18%;height:100px;transform:translateX(-50%);background:linear-gradient(180deg,#f36f7f55,#f36f7f00);clip-path:polygon(48% 0,58% 0,100% 100%,0 100%);filter:blur(1px)}
-.ear-flow{display:flex;align-items:center;justify-content:space-around;height:100%;padding:0 22px}
-.ear-node{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid #2f80ed;color:#216d9b;font-weight:950;position:relative}
-.ear-node:after{content:"";position:absolute;left:100%;top:50%;width:65px;height:3px;background:linear-gradient(90deg,#2f80ed,#51cfa3);transform:translateY(-50%);transform-origin:left;animation:flow 1.8s infinite}
-.ear-node:last-child:after{display:none}
-.ear-node:nth-child(2):after{animation-delay:.35s}.ear-node:nth-child(3):after{animation-delay:.7s}.ear-node:nth-child(4):after{animation-delay:1.05s}
-@keyframes flow{0%{transform:translateY(-50%) scaleX(.1);opacity:.2}50%{transform:translateY(-50%) scaleX(1);opacity:1}100%{transform:translateY(-50%) scaleX(.1);opacity:.2}}
-.heat{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;padding:16px;height:100%;align-items:end}
-.heat i{display:block;border-radius:8px 8px 2px 2px;background:linear-gradient(180deg,#ff7789,#f3bc55,#4ac6a1,#2f80ed);animation:bar .9s ease-in-out infinite alternate}
-@keyframes bar{from{transform:scaleY(.45);opacity:.55}to{transform:scaleY(1);opacity:1}}
-.visual-controls{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-.visual-controls button{border:1px solid #cfe2ec;background:#fff;color:#206e99;border-radius:10px;padding:8px 11px;font-weight:850;cursor:pointer}
-.visual-controls button.active{background:#2f80ed;color:#fff;border-color:#2f80ed}
-.slide-dots{display:flex;gap:5px;align-items:center;justify-content:center;margin-top:12px}
-.slide-dots i{display:block;width:8px;height:8px;border-radius:50%;background:#cadde7}
-.slide-dots i.active{background:#2f80ed;transform:scale(1.25)}
-.float-bubble{position:fixed;width:12px;height:12px;border-radius:50%;background:#5ddfff88;pointer-events:none;z-index:1;animation:floatBubble 9s linear infinite}
-@keyframes floatBubble{from{transform:translateY(110vh) translateX(0) scale(.7);opacity:0}12%{opacity:.8}100%{transform:translateY(-15vh) translateX(120px) scale(1.25);opacity:0}}
-.sticky-tip{
- position:fixed;right:18px;bottom:18px;z-index:35;background:#fff;border:1px solid #d5e7ee;
- box-shadow:0 12px 30px rgba(36,75,100,.16);border-radius:14px;padding:10px 12px;max-width:250px;
- font-size:12px;color:#476579;animation:tipIn .5s ease both
-}
-@keyframes tipIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@media(max-width:700px){
- .ear-node:after{width:22px}.vl-stage{min-height:170px}
+ canvas{border-color:#777}.footer{color:#333}
 }
 </style>
 </head>
@@ -333,7 +264,7 @@ body:after{
 <div class="card"><span class="tag">TO‘LQIN</span><h3>↔️ Energiya uzatilishi</h3><p>To‘lqin energiyani bir nuqtadan ikkinchisiga uzatadi; muhit zarralari esa muvozanat holati atrofida tebranadi.</p></div>
 </div>
 <div class="two" style="margin-top:18px">
-<div class="card"><h3>Siqilish va siyraklashish</h3><div id="compress" class="wave-svg smallcanvas" aria-label="Siqilish va siyraklashish signali"></div><p>Gazdagi tovushda zarralar zichlashgan va siyraklashgan sohalar ketma-ketligi hosil bo‘ladi.</p></div>
+<div class="card"><h3>Siqilish va siyraklashish</h3><canvas id="compress" class="smallcanvas"></canvas><p>Gazdagi tovushda zarralar zichlashgan va siyraklashgan sohalar ketma-ketligi hosil bo‘ladi.</p></div>
 <div class="card"><h3>Muhit bo‘yicha taqqoslash</h3>
 <table class="table"><tr><th>Muhit</th><th>Misol</th><th>Taxminiy tezlik</th></tr>
 <tr><td>Havo (20°C)</td><td>Gaz</td><td>343 m/s</td></tr>
@@ -383,7 +314,7 @@ body:after{
 </div>
 <div class="card"><h3>👁️ Osiloskop g‘oyasi</h3>
 <p>Mikrofon tovushni elektr signaliga aylantiradi. Osiloskop yoki dastur signalning vaqt bo‘yicha o‘zgarishini ko‘rsatadi.</p>
-<div id="scope" class="wave-svg smallcanvas" aria-label="Tovush signali"></div>
+<canvas id="scope" class="smallcanvas"></canvas>
 <div class="btnrow"><button class="btn secondary" onclick="scope('pure')">Sof</button><button class="btn secondary" onclick="scope('complex')">Murakkab</button><button class="btn secondary" onclick="scope('noise')">Shovqin</button></div>
 </div>
 </div>
@@ -395,10 +326,10 @@ body:after{
 <span class="kicker">4-bo‘lim • Xususiyatlar</span>
 <h2>Sof tovush, murakkab tovush va tembr</h2>
 <div class="two">
-<div class="card"><span class="tag">SOF TOVUSH</span><h3>🎵 Bitta komponentga yaqin</h3><p>Ideal sof tovush sinusoidal signal bilan tasvirlanadi. Masalan, laboratoriya generatorining sinusoidal signali.</p><div id="pureWave" class="wave-svg" aria-label="Sof tovush signali"></div>
+<div class="card"><span class="tag">SOF TOVUSH</span><h3>🎵 Bitta komponentga yaqin</h3><p>Ideal sof tovush sinusoidal signal bilan tasvirlanadi. Masalan, laboratoriya generatorining sinusoidal signali.</p><canvas id="pureWave"></canvas>
 <div class="btnrow"><button class="btn" onclick="playTone(440)">🔊 440 Hz</button><button class="btn secondary" onclick="stopTone()">■</button></div>
 </div>
-<div class="card"><span class="tag">MURAKKAB TOVUSH</span><h3>🎶 Bir nechta komponent</h3><p>Murakkab tovush asosiy chastota va qo‘shimcha garmonikalar yig‘indisidan tuzilishi mumkin. Musiqa asboblari va inson ovozi bunga misol.</p><div id="complexWave" class="wave-svg" aria-label="Murakkab tovush signali"></div>
+<div class="card"><span class="tag">MURAKKAB TOVUSH</span><h3>🎶 Bir nechta komponent</h3><p>Murakkab tovush asosiy chastota va qo‘shimcha garmonikalar yig‘indisidan tuzilishi mumkin. Musiqa asboblari va inson ovozi bunga misol.</p><canvas id="complexWave"></canvas>
 <div class="btnrow"><button class="btn" onclick="playComplex()">🔊 Murakkab</button><button class="btn secondary" onclick="stopTone()">■</button></div>
 </div>
 </div>
@@ -425,7 +356,7 @@ body:after{
 <div class="formula">f₂ ≈ 2f₁, &nbsp; f₃ ≈ 3f₁, &nbsp; f₄ ≈ 4f₁, ...</div>
 </div>
 <div class="card"><h3>📊 Spektrni ko‘z oldiga keltirish</h3>
-<div id="spectrum" class="wave-svg" aria-label="Tovush spektri"></div>
+<canvas id="spectrum"></canvas>
 <p class="sub">Ustunlar — alohida chastota komponentlarining nisbiy kuchini soddalashtirilgan ko‘rinishda ifodalaydi.</p>
 </div>
 </div>
@@ -496,7 +427,7 @@ body:after{
 <span class="kicker">9-bo‘lim • SONAR va hisoblash</span>
 <h2>SONAR: qaytish vaqtini masofaga aylantirish</h2>
 <div class="two">
-<div class="card"><h3>🚢 Interaktiv animatsiya</h3><div id="sonar" class="wave-svg" aria-label="SONAR animatsiyasi"></div><p class="sub">Ko‘k signal suv ostidagi obyektga boradi va aks-sado sifatida qaytadi.</p></div>
+<div class="card"><h3>🚢 Interaktiv animatsiya</h3><canvas id="sonar"></canvas><p class="sub">Ko‘k signal suv ostidagi obyektga boradi va aks-sado sifatida qaytadi.</p></div>
 <div class="card"><h3>🧮 Hisoblagich</h3>
 <label>Tovush tezligi v (m/s)</label><input id="sv" type="number" value="1500">
 <label>Qaytish vaqti t (s)</label><input id="st" type="number" value="0.80" step="0.01">
@@ -561,264 +492,21 @@ body:after{
 </div>
 </section>
 
-<div class="sticky-tip" id="stickyTip">💡 <b>Interaktiv:</b> tugmalarni bosib grafik va animatsiyalarni boshqaring.</div>
 </main>
 
 <footer class="footer">TOVUSH PRO • 9-sinf fizika • 12 betlik professional interaktiv darslik</footer>
 
-
-const visualScenes = {
-  1: {
-    title:'Kirish animatsiyasi',
-    caption:'Tovush — tebranishdan energiya uzatishgacha bo‘lgan jarayon',
-    render:()=>`<div class="vl-stage" id="scene1"><div class="sound-source"></div><div class="particle-row"></div><div class="pulse-ring" style="left:96px;top:50%;margin-top:-34px;width:68px;height:68px"></div><div class="pulse-ring" style="left:75px;top:50%;margin-top:-22px;width:44px;height:44px;animation-delay:.5s"></div></div>`,
-    animate:()=>{
-      const row=document.querySelector('#scene1 .particle-row'); if(!row)return;
-      row.innerHTML='';
-      for(let i=0;i<48;i++){const p=document.createElement('i');p.className='particle';p.style.left=(i/47*95)+'%';p.style.top=(18+Math.random()*64)+'%';p.style.animation=`particleDrift ${2.6+Math.random()*1.8}s ease-in-out ${Math.random()*-2}s infinite alternate`;row.appendChild(p);}
-      if(!document.getElementById('particleDriftKey')){const s=document.createElement('style');s.id='particleDriftKey';s.textContent='@keyframes particleDrift{from{transform:translateX(0)}to{transform:translateX(18px)}}';document.head.appendChild(s)}
-    }
-  },
-  2: {
-    title:'Siqilish–siyraklashish laboratoriyasi',
-    caption:'Zarralar o‘z joylarini tark etmay, tebranadi',
-    render:()=>`<div class="vl-stage" id="scene2"><div class="sound-source" style="left:18px"></div><div class="particle-row" style="left:120px"></div><div class="callout" style="position:absolute;right:16px;top:14px;width:205px;margin:0;background:#fff8e9;border:1px solid #eedba6">🔎 <b>Diqqat:</b> energiya oldinga uzatiladi, zarrachalar esa tebranadi.</div></div><div class="visual-controls"><button onclick="toggleScene2(this)">⏸ To‘xtatish</button><button onclick="speedScene2()">⚡ Tezlik</button></div>`,
-    animate:()=>{
-      const row=document.querySelector('#scene2 .particle-row'); if(!row)return;
-      row.innerHTML='';
-      for(let i=0;i<62;i++){const p=document.createElement('i');p.className='particle';p.style.left=(i%31/30*95)+'%';p.style.top=(i<31?25:62)+'%';p.style.width=p.style.height=(i%3===0?'11px':'8px');row.appendChild(p);}
-      window._scene2Running=true; window._scene2Speed=2.3; animateScene2();
-    }
-  },
-  3: {
-    title:'λ = v/f vizualizatori',
-    caption:'Chastota oshsa, bir xil muhitda to‘lqin uzunligi kamayadi',
-    render:()=>`<div class="vl-stage" id="scene3"><svg viewBox="0 0 900 190" width="100%" height="100%" preserveAspectRatio="none"><g class="vl-grid"></g><path id="lambdaPath" d="" stroke="#62e7ff" stroke-width="4" fill="none"/></svg><div style="position:absolute;left:18px;bottom:12px;color:#d9f5ff;font-size:12px">λ = v/f</div></div><div class="visual-controls"><button onclick="changeLambda('low',this)">Past f</button><button class="active" onclick="changeLambda('mid',this)">O‘rta f</button><button onclick="changeLambda('high',this)">Yuqori f</button></div>`,
-    animate:()=>changeLambda('mid')
-  },
-  4: {
-    title:'Quloq orqali signal oqimi',
-    caption:'Tovush → quloq → nerv signali → idrok',
-    render:()=>`<div class="vl-stage" style="background:linear-gradient(135deg,#eef8ff,#f5fffb)"><div class="ear-flow"><div class="ear-node">T</div><div class="ear-node">P</div><div class="ear-node">I</div><div class="ear-node">N</div><div class="ear-node">🧠</div></div></div>`,
-    animate:()=>{}
-  },
-  5: {
-    title:'Sof va murakkab signal taqqoslash',
-    caption:'Ikki signalning shaklini real vaqtga yaqin ko‘rinishda kuzating',
-    render:()=>`<div class="vl-stage"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px;height:100%"><div style="background:#071b2a;border:1px solid #2a6178;border-radius:14px;padding:10px"><div style="color:#bfeffd;font-weight:900;margin-bottom:5px">SOF</div><div id="miniPure"></div></div><div style="background:#071b2a;border:1px solid #2a6178;border-radius:14px;padding:10px"><div style="color:#bfeffd;font-weight:900;margin-bottom:5px">MURAKKAB</div><div id="miniComplex"></div></div></div></div>`,
-    animate:()=>{miniWave('miniPure','pure');miniWave('miniComplex','complex')}
-  },
-  6: {
-    title:'Garmonikalar spektri',
-    caption:'Asosiy ton va yuqori garmonikalar',
-    render:()=>`<div class="vl-stage"><div class="heat" id="heat"></div></div>`,
-    animate:()=>{const h=document.getElementById('heat');if(!h)return;h.innerHTML='';for(let i=0;i<10;i++){const b=document.createElement('i');b.style.height=(35+Math.random()*100)+'px';b.style.animationDelay=(i*.08)+'s';h.appendChild(b)}}
-  },
-  7: {
-    title:'Rezonansni his qiling',
-    caption:'Tabiiy chastotaga yaqinlashganda amplituda keskin oshadi',
-    render:()=>`<div class="vl-stage"><div class="res-curve"><div class="res-peak" id="resPeak"></div><svg viewBox="0 0 900 125" width="100%" height="100%" preserveAspectRatio="none"><path d="M10,108 C250,105 360,100 420,94 C455,84 470,35 500,18 C530,35 548,84 580,94 C650,103 760,106 890,108" fill="none" stroke="#ff8796" stroke-width="4"/></svg></div><div style="position:absolute;bottom:8px;left:20px;color:#d8f5ff">f majburiy → f tabiiy</div><div style="position:absolute;bottom:8px;right:20px;color:#d8f5ff">Amplituda ↑</div></div><div class="visual-controls"><button onclick="resonanceMove(25,this)">Past</button><button onclick="resonanceMove(50,this)">Rezonans</button><button onclick="resonanceMove(75,this)">Yuqori</button></div>`,
-    animate:()=>resonanceMove(50)
-  },
-  8: {
-    title:'Chastota diapazoni radar',
-    caption:'Infratovush → eshitiladigan → ultratovush',
-    render:()=>`<div class="vl-stage" style="padding:26px"><div class="meter" style="margin-top:55px"><i id="freqMeter" style="width:47%"></i></div><div style="display:flex;justify-content:space-between;color:#dff7ff;font-size:12px;margin-top:8px"><span>0 Hz</span><span>20 Hz</span><span>20 kHz</span><span>50 kHz</span></div><div id="freqBadge" style="position:absolute;left:46%;top:84px;transform:translateX(-50%);padding:8px 12px;border-radius:999px;background:#fff;color:#24637f;font-weight:900">440 Hz — eshitiladigan</div></div><div class="visual-controls"><button onclick="freqScene(15,this)">15 Hz</button><button onclick="freqScene(440,this)">440 Hz</button><button onclick="freqScene(12000,this)">12 kHz</button><button onclick="freqScene(30000,this)">30 kHz</button></div>`,
-    animate:()=>freqScene(440)
-  },
-  9: {
-    title:'Ultratovushli skan animatsiyasi',
-    caption:'Datchik yuboradi → signal qaytadi → tasvir hosil bo‘ladi',
-    render:()=>`<div class="vl-stage"><div class="scan-body"><div class="organ" style="width:90px;height:70px;left:28%;top:24%"></div><div class="organ" style="width:56px;height:46px;left:58%;top:58%;background:radial-gradient(circle at 35% 35%,#d7efff,#59b6df 45%,#1f6281)"></div><div class="scan-line"></div><div class="echo-wave" style="left:29%;top:31%"></div><div class="echo-wave" style="left:59%;top:64%;animation-delay:.7s"></div></div><div style="position:absolute;left:18px;bottom:13px;color:#dff7ff">ULTRATOVUSH • UZI</div></div>`
-  },
-  10: {
-    title:'SONAR ping → qaytish',
-    caption:'Impulsning obyektgacha borib qaytishi',
-    render:()=>`<div class="vl-stage" id="scene10"><div class="pulse-ring" style="left:10%;top:50%;margin-top:-24px;width:48px;height:48px;border-color:#63e7ff"></div><div style="position:absolute;left:12%;top:50%;width:70%;border-top:3px dashed #63e7ff"></div><div style="position:absolute;right:10%;top:42%;width:74px;height:35px;background:#e1f4fb;border-radius:18px 7px 7px 18px"></div><div style="position:absolute;left:12%;top:44%;width:42px;height:46px;border-radius:14px;background:#2b91bb"></div><div style="position:absolute;left:14%;top:18px;color:#d8f6ff;font-weight:900">PING</div><div style="position:absolute;right:10%;bottom:18px;color:#d8f6ff;font-weight:900">OBYEKT</div></div><div class="visual-controls"><button onclick="pingSonar(this)">▶ Ping</button></div>`,
-    animate:()=>{}
-  },
-  11: {
-    title:'Tajriba stansiyasi',
-    caption:'Tebranish → kuzatish → natija',
-    render:()=>`<div class="vl-stage" style="background:linear-gradient(180deg,#dff4ff,#f7fbff)"><div style="position:absolute;left:12%;bottom:22px;width:65%;height:26px;background:#2c6f92;border-radius:16px"></div><div id="labPendulum" style="position:absolute;left:35%;top:24px;width:5px;height:120px;background:#52798b;transform-origin:top;transform:rotate(0deg)"><div style="position:absolute;bottom:-18px;left:-18px;width:41px;height:41px;border-radius:50%;background:#f2bd4e;box-shadow:0 7px 14px rgba(0,0,0,.12)"></div></div><div style="position:absolute;right:12%;top:25px;width:150px;height:90px;border:2px solid #8cb9cb;border-radius:12px;background:#fff"><div style="padding:10px;color:#34657e;font-weight:900">Kuzatuv</div><div class="meter" style="margin:8px"><i id="labMeter" style="width:70%"></i></div></div></div><div class="visual-controls"><button onclick="swingLab(this)">▶ Tajribani boshlash</button></div>`,
-    animate:()=>{}
-  },
-  12: {
-    title:'Bilimni mustahkamlash',
-    caption:'Test yakunlanganda natija va formulalar xaritasi',
-    render:()=>`<div class="vl-stage" style="background:linear-gradient(135deg,#0c2840,#154d62);display:grid;place-items:center"><div style="text-align:center;color:#fff"><div style="font-size:42px">🏆</div><div style="font-size:24px;font-weight:950">Tovush laboratoriyasi</div><div style="font-size:13px;color:#b9e9f4">Tovush → signal → formula → amaliyot</div><div class="slide-dots" style="margin-top:14px">${Array.from({length:12},(_,i)=>`<i class="${i===11?'active':''}"></i>`).join('')}</div></div></div>`
-  }
-};
-
-function addVisualLabs(){
- document.querySelectorAll('.page').forEach((page,idx)=>{
-   const n=idx+1; if(page.querySelector('.visual-lab')) return;
-   const s=visualScenes[n]; if(!s) return;
-   const lab=document.createElement('div'); lab.className='visual-lab';lab.id='visual'+n;
-   lab.innerHTML=`<div class="vl-head"><div><div class="vl-title">${s.title}</div><div class="vl-caption">${s.caption}</div></div><span class="tag">INTERAKTIV</span></div>${s.render()}`;
-   const firstCard=page.querySelector('.card');
-   if(firstCard) firstCard.before(lab); else page.querySelector('h2')?.after(lab);
-   if(s.animate) s.animate();
- });
-}
-function animateVisibleLab(n){
- const s=visualScenes[n]; if(!s)return;
- const lab=document.getElementById('visual'+n);
- if(!lab)return;
- lab.classList.remove('entering'); void lab.offsetWidth; lab.classList.add('entering');
- if(s.animate) s.animate();
-}
-function miniWave(id,type){
- const el=document.getElementById(id); if(!el)return;
- let d=''; const W=360,H=120,mid=60;
- for(let x=0;x<=W;x++){let t=x/W*Math.PI*7,y=type==='pure'?Math.sin(t):.6*Math.sin(t)+.25*Math.sin(t*2)+.13*Math.sin(t*4);let yy=mid-y*39;d+=(x?'L':'M')+x+','+yy+' '}
- el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" height="120"><path d="${d}" stroke="#61e8ff" stroke-width="4" fill="none"/></svg>`;
-}
-function toggleScene2(btn){window._scene2Running=!window._scene2Running;btn.textContent=window._scene2Running?'⏸ To‘xtatish':'▶ Davom ettirish'}
-function speedScene2(){window._scene2Speed=(window._scene2Speed||2.3)+.8}
-function animateScene2(){
- const row=document.querySelector('#scene2 .particle-row'); if(!row)return;
- const ps=[...row.children]; const now=performance.now(), running=window._scene2Running;
- if(running){ps.forEach((p,i)=>{p.style.transform=`translateX(${Math.sin(now/700+i*.33)*20}px)`})}
- requestAnimationFrame(animateScene2)
-}
-function changeLambda(level,btn){
- document.querySelectorAll('#visual3 .visual-controls button').forEach(b=>b.classList.remove('active'));btn?.classList.add('active');
- const path=document.getElementById('lambdaPath'); if(!path)return;
- const cycles=level==='low'?3:level==='high'?11:6;let d='';for(let x=0;x<=900;x++){let t=x/900*Math.PI*2*cycles;let y=95-Math.sin(t)*52;d+=(x?'L':'M')+x+','+y+' '};path.setAttribute('d',d)
-}
-function resonanceMove(v,btn){
- document.querySelectorAll('#visual7 .visual-controls button').forEach(b=>b.classList.remove('active'));btn?.classList.add('active');
- const p=document.getElementById('resPeak');if(!p)return;
- const scale=v===50?1.6:v<50?.72:.88;p.style.transform=`translateX(-50%) scaleY(${scale})`;
-}
-function freqScene(v,btn){
- document.querySelectorAll('#visual8 .visual-controls button').forEach(b=>b.classList.remove('active'));btn?.classList.add('active');
- const pct=Math.min(96,Math.max(4,v/50000*100));document.getElementById('freqMeter').style.width=pct+'%';
- const badge=document.getElementById('freqBadge');badge.style.left=pct+'%';badge.textContent=v<20?`${v} Hz — infratovush`:v<=20000?`${v.toLocaleString()} Hz — eshitiladigan`:`${v.toLocaleString()} Hz — ultratovush`;
-}
-function pingSonar(btn){
- btn.textContent='🔊 Ping...';btn.disabled=true;
- const s=document.querySelector('#scene10 .pulse-ring'); if(!s){btn.disabled=false;return}
- s.style.animation='none';void s.offsetWidth;s.style.animation='pingMove 1.8s ease-in-out';
- const st=document.createElement('style');st.textContent='@keyframes pingMove{0%{left:10%;opacity:1;transform:scale(.4)}55%{left:82%;opacity:.85;transform:scale(1.2)}100%{left:10%;opacity:0;transform:scale(.4)}}';document.head.appendChild(st);
- setTimeout(()=>{btn.textContent='▶ Ping';btn.disabled=false},1900)
-}
-function swingLab(btn){
- const p=document.getElementById('labPendulum'),m=document.getElementById('labMeter'); if(!p)return;
- btn.disabled=true;let start=performance.now();
- function a(t){const q=Math.min(1,(t-start)/2600);const deg=Math.sin(q*Math.PI*5)*28*(1-q*.35);p.style.transform=`rotate(${deg}deg)`;m.style.width=(45+55*(.5+.5*Math.abs(Math.sin(q*Math.PI*5))))+'%';if(q<1)requestAnimationFrame(a);else btn.disabled=false}
- requestAnimationFrame(a)
-}
-function spawnBubbles(){
- for(let i=0;i<13;i++){const b=document.createElement('div');b.className='float-bubble';b.style.left=(Math.random()*100)+'%';b.style.animationDelay=(-Math.random()*9)+'s';b.style.opacity=(.18+Math.random()*.5).toFixed(2);document.body.appendChild(b)}
-}
 <script>
 let current=1;
 const pages=[...document.querySelectorAll('.page')];
-function showPage(n){addVisualLabs();
- current=Math.max(1,Math.min(pages.length,n));
- pages.forEach((p,i)=>p.classList.toggle('hide',i!==current-1));
- document.getElementById('indicator').textContent=current+' / '+pages.length;
- document.getElementById('topProgress').style.width=(current/pages.length*100)+'%';
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-   redrawSignals();
- }));
- window.scrollTo({top:0,behavior:'smooth'});
-}
+function showPage(n){current=Math.max(1,Math.min(pages.length,n));pages.forEach((p,i)=>p.classList.toggle('hide',i!==current-1));document.getElementById('indicator').textContent=current+' / '+pages.length;document.getElementById('topProgress').style.width=(current/pages.length*100)+'%';window.scrollTo({top:0,behavior:'smooth'});}
 function nextPage(){showPage(current+1)} function prevPage(){showPage(current-1)}
-function initAll(){addVisualLabs();pages.forEach((p,i)=>p.classList.toggle('hide',i!==0));document.getElementById('topProgress').style.width=(1/pages.length*100)+'%';redrawSignals();calcV();calcS();renderQ();}
-
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-
-function svgWave(id,type,small=false){
- const el=document.getElementById(id); if(!el) return;
- const W=900,H=small?175:235, mid=H/2, amp=H*.30;
- let path='';
- for(let x=0;x<=W;x++){
-   const t=x/W*Math.PI*12;
-   let y=0;
-   if(type==='pure') y=Math.sin(t);
-   else if(type==='complex') y=.60*Math.sin(t)+.24*Math.sin(2*t)+.13*Math.sin(4*t);
-   else y=.48*Math.sin(t)+.22*Math.sin(8*t)+.17*Math.sin(19*t);
-   const yy=mid-y*amp;
-   path += (x===0?'M':'L')+x.toFixed(1)+','+yy.toFixed(1)+' ';
- }
- let grid='';
- for(let x=0;x<=W;x+=90) grid+=`<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="#a8d9e633" stroke-width="1"/>`;
- for(let y=25;y<H;y+=35) grid+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#a8d9e633" stroke-width="1"/>`;
- const label = type==='pure'?'Sof tovush':type==='complex'?'Murakkab tovush':'Shovqin signali';
- el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" width="100%" height="100%" role="img">
- <rect width="100%" height="100%" fill="#0b2637"/>${grid}
- <line x1="0" y1="${mid}" x2="${W}" y2="${mid}" stroke="#d5f3ff66" stroke-width="1"/>
- <path d="${path}" fill="none" stroke="#63e7ff" stroke-width="4" stroke-linecap="round"/>
- <text x="18" y="22" fill="#d8f5fb" font-size="16" font-family="Segoe UI,Arial">${esc(label)}</text>
- <text x="18" y="${H-10}" fill="#b7dbe7" font-size="12" font-family="Segoe UI,Arial">Amplituda</text>
- <text x="${W-64}" y="${H-10}" fill="#b7dbe7" font-size="12" font-family="Segoe UI,Arial">Vaqt →</text>
- </svg>`;
-}
-
-function drawCompress(){
- const el=document.getElementById('compress'); if(!el)return;
- const W=900,H=175,mid=88;
- let bars='', labels='';
- for(let i=0;i<90;i++){
-   const x=10+i*(W-20)/90;
-   const z=.5+.5*Math.sin(i*.34);
-   const hh=16+z*68;
-   const fill=z>.5?'#1fa6d2':'#9ec2d1';
-   bars+=`<rect x="${x.toFixed(1)}" y="${(mid-hh/2).toFixed(1)}" width="3" height="${hh.toFixed(1)}" rx="1.5" fill="${fill}"/>`;
- }
- el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" width="100%" height="100%">
- <rect width="100%" height="100%" fill="#eef9ff"/>
- ${bars}<line x1="0" y1="${mid}" x2="${W}" y2="${mid}" stroke="#6a97ad" stroke-width="1"/>
- <text x="18" y="22" fill="#2c607a" font-size="16" font-family="Segoe UI,Arial">Siqilish</text>
- <text x="${W-130}" y="22" fill="#2c607a" font-size="16" font-family="Segoe UI,Arial">Siyraklashish</text>
- </svg>`;
-}
-
-function drawSpectrum(){
- const el=document.getElementById('spectrum'); if(!el)return;
- const W=900,H=235, a=[.92,.48,.34,.22,.13,.08,.05];
- let bars='';
- const colors=['#2f80ed','#3ca4d4','#48b78d','#f0b84d','#d681cb','#7c78df','#8ba9bd'];
- for(let i=0;i<a.length;i++){
-   const x=40+i*115,bh=a[i]*155;
-   bars+=`<rect x="${x}" y="${190-bh}" width="62" height="${bh}" rx="7" fill="${colors[i]}"/>
-           <text x="${x+18}" y="216" fill="#456b80" font-size="13" font-family="Segoe UI,Arial">${i+1}f</text>`;
- }
- el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" width="100%" height="100%">
- <rect width="100%" height="100%" fill="#eef8ff"/>
- <line x1="20" y1="190" x2="${W-20}" y2="190" stroke="#9bbac8" stroke-width="2"/>
- ${bars}<text x="18" y="24" fill="#456b80" font-size="14" font-family="Segoe UI,Arial">Nisbiy amplituda</text>
- </svg>`;
-}
-
-function drawSonar(){
- const el=document.getElementById('sonar'); if(!el)return;
- const W=900,H=235;
- let circles='';
- for(let r=42;r<145;r+=34) circles+=`<circle cx="155" cy="135" r="${r}" fill="none" stroke="#56e7ff" stroke-width="2"/>`;
- el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" width="100%" height="100%">
- <rect width="100%" height="100%" fill="#082336"/>
- <g stroke="#a7e0ef1f"> <line x1="0" y1="35" x2="${W}" y2="35"/><line x1="0" y1="75" x2="${W}" y2="75"/><line x1="0" y1="115" x2="${W}" y2="115"/><line x1="0" y1="155" x2="${W}" y2="155"/><line x1="0" y1="195" x2="${W}" y2="195"/></g>
- ${circles}
- <circle cx="155" cy="135" r="8" fill="#56e7ff"/>
- <rect x="650" y="127" width="90" height="16" rx="8" fill="#d6edf8"/>
- <line x1="165" y1="135" x2="650" y2="135" stroke="#56e7ff" stroke-width="3" stroke-dasharray="10 8"/>
- <text x="18" y="24" fill="#d5edf7" font-size="15" font-family="Segoe UI,Arial">Datchik</text>
- <text x="658" y="118" fill="#d5edf7" font-size="15" font-family="Segoe UI,Arial">Obyekt</text>
- <text x="365" y="122" fill="#bfe8f5" font-size="13" font-family="Segoe UI,Arial">Yuborilgan signal ↔ qaytgan signal</text>
- </svg>`;
-}
-
-function redrawSignals(){
- svgWave('scope','pure',true); svgWave('pureWave','pure',false);
- svgWave('complexWave','complex',false); drawCompress(); drawSpectrum(); drawSonar();
-}
-
-function scope(type){svgWave('scope',type,true)}
-
+function initAll(){pages.forEach((p,i)=>p.classList.toggle('hide',i!==0));document.getElementById('topProgress').style.width=(1/pages.length*100)+'%';drawCompress();drawWave('scope','pure');drawWave('pureWave','pure');drawWave('complexWave','complex');drawSpectrum();drawSonar();calcV();calcS();renderQ();}
+function drawCompress(){const c=document.getElementById('compress');if(!c)return;const ctx=c.getContext('2d');function r(){let w=c.clientWidth,h=c.clientHeight,d=devicePixelRatio||1;c.width=w*d;c.height=h*d;ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);for(let i=0;i<85;i++){let x=(i/84)*w;let z=.5+.5*Math.sin(i*.34);let hh=12+z*75;ctx.fillStyle=z>.5?'#56e7ff':'#3a7898';ctx.fillRect(x,h/2-hh/2,3,hh)}ctx.fillStyle='#b7d7e5';ctx.font='12px Arial';ctx.fillText('Siqilish',16,18);ctx.fillText('Siyraklashish',w-112,18)}r();window.addEventListener('resize',r)}
+function drawWave(id,type){const c=document.getElementById(id);if(!c)return;const ctx=c.getContext('2d');function r(){let w=c.clientWidth,h=c.clientHeight,d=devicePixelRatio||1;c.width=w*d;c.height=h*d;ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);ctx.strokeStyle='#56e7ff';ctx.lineWidth=2;ctx.beginPath();for(let x=0;x<w;x++){let t=x/w*Math.PI*12,y=0;if(type==='pure')y=Math.sin(t);else if(type==='complex')y=.6*Math.sin(t)+.24*Math.sin(2*t)+.13*Math.sin(4*t);else y=.48*Math.sin(t)+.22*Math.sin(8*t)+.17*Math.sin(19*t);let yy=h/2-y*h*.28;x?ctx.lineTo(x,yy):ctx.moveTo(x,yy)}ctx.stroke()}r();window.addEventListener('resize',r)}
+function scope(type){drawWave('scope',type)}
+function drawSpectrum(){const c=document.getElementById('spectrum');if(!c)return;const ctx=c.getContext('2d');function r(){let w=c.clientWidth,h=c.clientHeight,d=devicePixelRatio||1;c.width=w*d;c.height=h*d;ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);const a=[.92,.48,.34,.22,.13,.08,.05];for(let i=0;i<a.length;i++){let bw=w/a.length*.45;let x=20+i*(w/a.length);let bh=a[i]*(h-28);ctx.fillStyle='#78a8ff';ctx.fillRect(x,h-bh-15,bw,bh);ctx.fillStyle='#8fb3cb';ctx.font='11px Arial';ctx.fillText((i+1)+'f',x,h-3)}}r();window.addEventListener('resize',r)}
+function drawSonar(){const c=document.getElementById('sonar');if(!c)return;const ctx=c.getContext('2d');function r(){let w=c.clientWidth,h=c.clientHeight,d=devicePixelRatio||1;c.width=w*d;c.height=h*d;ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#0e2436';ctx.fillRect(0,0,w,h);ctx.fillStyle='#d6edf8';ctx.fillRect(w*.73,h*.58,65,12);ctx.fillStyle='#56e7ff';ctx.beginPath();ctx.arc(w*.18,h*.58,7,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#56e7ff';for(let r0=42;r0<145;r0+=34){ctx.beginPath();ctx.arc(w*.18,h*.58,r0,0,Math.PI*2);ctx.stroke()}ctx.fillStyle='#9bc4d8';ctx.font='12px Arial';ctx.fillText('datchik',12,20);ctx.fillText('obyekt',w*.70,h*.53)}r();window.addEventListener('resize',r)}
 function calcV(){const l=Number(document.getElementById('lambda').value)||0,f=Number(document.getElementById('freqCalc').value)||0;document.getElementById('vResult').textContent=(l*f).toFixed(2)+' m/s'}
 function calcS(){const v=Number(document.getElementById('sv').value)||0,t=Number(document.getElementById('st').value)||0;document.getElementById('sout').textContent=(v*t/2).toFixed(2)+' m'}
 function showRange(v){v=Number(v);document.getElementById('rangeVal').textContent=v.toLocaleString()+' Hz';document.getElementById('rangeText').textContent=v<20?'Infratovush: 20 Hz dan past.':v<=20000?'Insonning odatiy eshitish diapazonidagi signal.':'Ultratovush: 20 kHz dan yuqori.'}
@@ -854,7 +542,7 @@ let qi=0,score=0;
 function renderQ(){const q=qs[qi];document.getElementById('quiz').innerHTML='<div class="quizq">'+(qi+1)+'. '+q[0]+'</div><div class="answers">'+q[1].map((x,i)=>'<button class="answerbtn" onclick="answerQ('+i+')">'+x+'</button>').join('')+'</div>';document.getElementById('quizMsg').textContent='';document.getElementById('prog').style.width=(qi/qs.length*100)+'%'}
 function answerQ(i){const q=qs[qi],m=document.getElementById('quizMsg');if(i===q[2]){score++;m.textContent='✅ To‘g‘ri!';m.className='answer ok'}else{m.textContent='❌ To‘g‘ri javob: '+q[1][q[2]];m.className='answer no'}document.querySelectorAll('.answerbtn').forEach(b=>b.disabled=true)}
 function nextQ(){if(qi<qs.length-1){qi++;renderQ()}else{document.getElementById('quiz').innerHTML='<div class="value">Natija: '+score+'/20</div><p>'+(score>=18?'A’lo natija!':score>=14?'Yaxshi natija!':'Mavzuni qayta takrorlash tavsiya etiladi.')+'</p>';document.getElementById('next').textContent='Qayta boshlash';document.getElementById('next').onclick=()=>{qi=0;score=0;document.getElementById('next').textContent='Keyingi savol →';document.getElementById('next').onclick=nextQ;renderQ()}}}
-initAll();redrawSignals();spawnBubbles();setTimeout(()=>{document.getElementById('stickyTip')?.remove()},7000);window.addEventListener('resize',()=>redrawSignals());requestAnimationFrame(()=>showPage(1));
+initAll();
 </script>
 </body>
 </html>
