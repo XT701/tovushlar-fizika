@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tovushlarni ko‘rish va eshitish — 9-sinf fizika</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#07111f;color:#eef6ff;line-height:1.55}
+nav{position:sticky;top:0;z-index:10;background:#091a2dcc;backdrop-filter:blur(14px);padding:14px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #24405c}
+.logo{font-weight:800;color:#67e8f9}.nav a{color:#dbeafe;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{padding:80px 7% 55px;background:radial-gradient(circle at 80% 20%,#164e63 0,#07111f 45%);text-align:center}
+.badge{display:inline-block;padding:7px 14px;border:1px solid #22d3ee;border-radius:99px;color:#67e8f9}
+h1{font-size:clamp(35px,6vw,70px);line-height:1.05;margin:18px auto;max-width:900px}
+.hero p{max-width:760px;margin:auto;color:#bfd3e7;font-size:18px}
+.container{width:min(1150px,92%);margin:auto}.section{padding:65px 0}.title{font-size:34px;margin-bottom:10px}.sub{color:#9db2c8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:25px}
+.card{background:#0c1d2f;border:1px solid #213d56;border-radius:20px;padding:24px;box-shadow:0 12px 35px #0003}
+.card h3{margin-top:0;color:#67e8f9}.icon{font-size:38px}
+.wave{height:170px;width:100%;border-radius:18px;background:#06101b;border:1px solid #1e3a50;overflow:hidden}
+canvas{width:100%;height:100%}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px}.tag{display:inline-block;background:#123b50;color:#7dd3fc;border-radius:8px;padding:3px 9px;font-size:13px}
+button{border:0;border-radius:12px;padding:12px 18px;background:#06b6d4;color:#03121c;font-weight:800;cursor:pointer;margin:5px}
+button:hover{filter:brightness(1.12)}.answer{min-height:28px;font-weight:700;margin-top:12px}
+.quiz{background:linear-gradient(135deg,#0c2337,#102b40);border-radius:24px;padding:28px;border:1px solid #28506b}
+footer{text-align:center;padding:35px;color:#7f98ae;border-top:1px solid #19344a}
+ul{padding-left:22px}.formula{font-size:24px;text-align:center;background:#071522;border-radius:14px;padding:14px;color:#a7f3d0}
+@media(max-width:700px){.compare{grid-template-columns:1fr}.nav a{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="logo">🔊 FIZIKA • 9-SINF</div><div class="nav"><a href="#mavzu">Mavzu</a><a href="#tovush">Tovush</a><a href="#ultra">Ultratovush</a><a href="#quiz">Test</a></div></nav>
+
+<header class="hero">
+<span class="badge">INTERAKTIV ELEKTRON ISHLANMA</span>
+<h1>Tovushlarni ko‘rish va eshitish</h1>
+<p>Sof tovush • Murakkab tovush • Tovushning grafik ko‘rinishi • Ultratovushlarning tadbiqi</p>
+<br><a href="#mavzu"><button>Boshlash ↓</button></a>
+</header>
+
+<main class="container">
+<section id="mavzu" class="section">
+<h2 class="title">1. Tovush qanday hosil bo‘ladi?</h2>
+<p class="sub">Tovush — elastik muhitda tarqaladigan mexanik to‘lqin. Uni hosil qilish uchun tebranuvchi manba va tarqalish muhiti kerak.</p>
+<div class="grid">
+<div class="card"><div class="icon">🎸</div><h3>Tebranish</h3><p>Tor, membrana yoki boshqa jism tebranganda atrofdagi muhit zarralarini ham tebratadi.</p></div>
+<div class="card"><div class="icon">🌊</div><h3>To‘lqin</h3><p>Tebranishlar muhit orqali siqilish va siyraklashishlar ko‘rinishida tarqaladi.</p></div>
+<div class="card"><div class="icon">👂</div><h3>Eshitish</h3><p>Quloq tovush to‘lqinlarini qabul qiladi, miya esa ularni tovush sifatida idrok etadi.</p></div>
+</div>
+<div class="formula">v = λf &nbsp;&nbsp; | &nbsp;&nbsp; f = 1/T</div>
+<p><b>f</b> — chastota (Hz), <b>T</b> — davr (s), <b>λ</b> — to‘lqin uzunligi (m), <b>v</b> — tovush tezligi (m/s).</p>
+</section>
+
+<section id="tovush" class="section">
+<h2 class="title">2. Tovushni “ko‘rish”</h2>
+<p class="sub">Tovushning o‘zini ko‘z bilan ko‘rmaymiz, lekin uning tebranishini grafik yoki osiloskop yordamida tasvirlash mumkin.</p>
+<div class="card"><div class="wave"><canvas id="waveCanvas"></canvas></div><br>
+<button onclick="setWave('pure')">Sof tovush</button>
+<button onclick="setWave('complex')">Murakkab tovush</button>
+<button onclick="setWave('noise')">Aralash signal</button>
+<p id="waveText"><b>Sof tovush:</b> sinusoidal tebranishga yaqin bo‘ladi.</p></div>
+</section>
+
+<section class="section">
+<h2 class="title">3. Sof va murakkab tovush</h2>
+<div class="compare">
+<div class="card"><span class="tag">SOF TOVUSH</span><h3>🎵 Bitta asosiy chastota</h3><p>Ideal holda bitta chastotali sinusoidal tebranishdan iborat. Masalan, generator hosil qilgan tovush.</p><div class="wave"><canvas id="pureCanvas"></canvas></div></div>
+<div class="card"><span class="tag">MURAKKAB TOVUSH</span><h3>🎶 Bir nechta chastota</h3><p>Asosiy ton va qo‘shimcha garmonikalar yig‘indisidan hosil bo‘ladi. Musiqa asboblari tembri shu bilan bog‘liq.</p><div class="wave"><canvas id="complexCanvas"></canvas></div></div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="title">4. Tovushning asosiy xususiyatlari</h2>
+<div class="grid">
+<div class="card"><h3>Chastota → baland-pastlik</h3><p>Chastota katta bo‘lsa, tovush balandroq (o‘tkirroq) eshitiladi. Chastota Hz da o‘lchanadi.</p></div>
+<div class="card"><h3>Amplituda → kuchlilik</h3><p>Amplituda kattalashsa, odatda tovush kuchliroq eshitiladi.</p></div>
+<div class="card"><h3>Tembr → tovush rangi</h3><p>Bir xil notani turli asboblar turlicha eshittiradi. Bunga murakkab tovush tarkibi ta’sir qiladi.</p></div>
+</div>
+</section>
+
+<section id="ultra" class="section">
+<h2 class="title">5. Ultratovushlar</h2>
+<p class="sub">Inson qulog‘i odatda taxminan 20 Hz–20 kHz oralig‘idagi tovushlarni eshita oladi. 20 kHz dan yuqori chastotali tovushlar ultratovush deyiladi.</p>
+<div class="grid">
+<div class="card"><div class="icon">🏥</div><h3>Tibbiyot</h3><p>Ultratovush diagnostikada ichki a’zolarni tasvirlash uchun qo‘llanadi.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>Sanoat</h3><p>Detallardagi ayrim nuqsonlarni aniqlash va materiallarni tekshirishda ishlatiladi.</p></div>
+<div class="card"><div class="icon">🚢</div><h3>SONAR</h3><p>Suv ostidagi jismlarning joylashuvi va masofasini aniqlashda tovush qaytishidan foydalaniladi.</p></div>
+<div class="card"><div class="icon">🧼</div><h3>Tozalash</h3><p>Ultratovushli vannalar mayda buyumlarni tozalashda qo‘llanadi.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="title">6. Hayotiy tajriba</h2>
+<div class="card"><h3>🥁 Baraban tajribasi</h3><p>Baraban membranasiga yaqin joyga yengil qog‘oz bo‘laklarini qo‘ying va membranani sekin tebrating. Tebranish natijasini kuzatish mumkin.</p><p><b>Eslatma:</b> tajribani xavfsiz, past ovozda va o‘qituvchi nazorati ostida bajaring.</p></div>
+</section>
+
+<section id="quiz" class="section">
+<h2 class="title">7. Mini-test</h2>
+<div class="quiz">
+<p><b>1.</b> Inson eshitish diapazonining yuqori chegarasi taxminan qancha?</p>
+<button onclick="check(this,false)">2 kHz</button><button onclick="check(this,true)">20 kHz</button><button onclick="check(this,false)">200 kHz</button>
+<div class="answer"></div>
+<hr>
+<p><b>2.</b> 20 kHz dan yuqori chastotali tovush nima deyiladi?</p>
+<button onclick="check(this,false)">Infratovush</button><button onclick="check(this,true)">Ultratovush</button><button onclick="check(this,false)">Sof tovush</button>
+<div class="answer"></div>
+<hr>
+<p><b>3.</b> Murakkab tovush nimadan tashkil topishi mumkin?</p>
+<button onclick="check(this,true)">Bir nechta chastotalar yig‘indisidan</button><button onclick="check(this,false)">Faqat vakuumdan</button><button onclick="check(this,false)">Faqat bitta chastotadan</button>
+<div class="answer"></div>
+</div>
+</section>
+</main>
+<footer>9-sinf fizika • Tovushlar va ultratovush • Interaktiv dars</footer>
+
+<script>
+const canvases=['waveCanvas','pureCanvas','complexCanvas'];
+function draw(id,type){
+ const c=document.getElementById(id),ctx=c.getContext('2d');
+ function resize(){c.width=c.clientWidth*devicePixelRatio;c.height=c.clientHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);ctx.clearRect(0,0,c.clientWidth,c.clientHeight);ctx.lineWidth=2;ctx.beginPath();
+ let w=c.clientWidth,h=c.clientHeight;
+ for(let x=0;x<w;x++){let t=x/w*Math.PI*10,y;
+ if(type==='pure') y=Math.sin(t);
+ else if(type==='complex') y=.65*Math.sin(t)+.25*Math.sin(3*t)+.15*Math.sin(5*t);
+ else y=.55*Math.sin(t)+.25*Math.sin(9*t)+.12*Math.sin(17*t);
+ let yy=h/2-y*h*.32;if(x===0)ctx.moveTo(x,yy);else ctx.lineTo(x,yy)}
+ ctx.stroke()}
+ resize();addEventListener('resize',resize);
+}
+function setWave(t){draw('waveCanvas',t);document.getElementById('waveText').innerHTML=t==='pure'?'<b>Sof tovush:</b> sinusoidal tebranishga yaqin bo‘ladi.':t==='complex'?'<b>Murakkab tovush:</b> bir nechta chastotalar qo‘shilishidan hosil bo‘ladi.':'<b>Aralash signal:</b> shakli murakkab bo‘lib, tarkibida turli tebranishlar mavjud.'}
+function check(btn,ok){let box=btn.parentElement;let ans=btn.nextElementSibling;while(ans&&!ans.classList.contains('answer'))ans=ans.nextElementSibling;if(!ans)ans=box.querySelector('.answer');ans.textContent=ok?'✅ To‘g‘ri!':'❌ Noto‘g‘ri. Yana urinib ko‘ring.';ans.style.color=ok?'#86efac':'#fca5a5'}
+setWave('pure');draw('pureCanvas','pure');draw('complexCanvas','complex');
+</script>
+</body></html>
